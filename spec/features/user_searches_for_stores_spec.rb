@@ -7,7 +7,7 @@ feature "User visits homepage and searches for stores by zip" do
     visit "/"
     # And I fill in a search box with "80202" and click "search"
     fill_in :search_box, with: '80202'
-    click "search"
+    click_on "search"
     # Then my current path should be "/search" (ignoring params)
     expect(current_path).to eq('/search')
     # And I should see stores within 25 miles of 80202

@@ -21,4 +21,10 @@
       </li>
     </ul>
   </div>
+  <div>
+    <form action="<%= search_path %>" method="get" >
+      <%= text_field_tag :search_box %>
+      <%= submit_tag "search", name: nil, search_box: nil %>
+    </form>
+  </div>
 </nav>
