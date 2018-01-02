@@ -1,13 +1,8 @@
 class SearchController < ApplicationController
 
   def index
-
-    @stores = service.find_all_stores(search_params[:zip_code])
-    # results = Faraday.get("https://api.bestbuy.com/v1/stores(area(80202,25))?format=json&show=city,distance,longName,phone,storeType&pageSize=10&apiKey=#{ENV['bestbuy_api_key']}")
-    # parsed_results = JSON.parse(results.body, symbolize_names: true)
-    # @stores = parsed_results[:stores].map do |raw_store|
-    #   Store.new(raw_store)
-    # end
+    @stores = BestBuyStoresPresenter.new(search_params[:zip_code]).all_stores
+    # @stores = service.find_all_stores(search_params[:zip_code])
   end
 
   private
