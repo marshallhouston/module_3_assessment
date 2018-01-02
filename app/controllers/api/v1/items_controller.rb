@@ -12,10 +12,8 @@ class Api::V1::ItemsController < Api::V1::BaseController
   def destroy
     if @item
       @item.destroy
-      render json: { status: 204 }
-      # render json: { head: :no_content }
     else
-      render json: {status: :not_found}
+      render status: :not_found
     end
   end
 

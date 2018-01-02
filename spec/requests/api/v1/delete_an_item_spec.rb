@@ -14,7 +14,6 @@ describe "Items API" do
         delete "/api/v1/items/#{item.id}", headers: header
       }.to change(Item, :count).by(-1)
 
-      require "pry"; binding.pry
       expect(response.status).to eq 204
     end
 
