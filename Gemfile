@@ -18,6 +18,7 @@ gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'faraday'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -31,6 +32,7 @@ group :test do
   gem 'rspec-rails'
   gem 'vcr'
   gem 'webmock'
+  gem 'launchy'
 end
 
 group :development do
