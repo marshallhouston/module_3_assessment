@@ -5,4 +5,3 @@ FactoryBot.define do
     image_url "http://robohash.org/1.png?set=set2&bgset=bg1&size=200x200"
   end
 end
-
