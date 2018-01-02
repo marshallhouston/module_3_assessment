@@ -10,6 +10,10 @@ class BestBuyStoresPresenter
     end
   end
 
+  def total_stores
+    best_buy_service.find_all_stores(zip_code)[:total]
+  end
+
   private
     attr_reader :zip_code
 

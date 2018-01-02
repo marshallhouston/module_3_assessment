@@ -6,11 +6,7 @@ class BestBuyService
 
   def find_all_stores(zip_code)
     response = conn.get "/v1/stores(area(#{zip_code},25))", base_filter
-    parsed_results = JSON.parse(response.body, symbolize_names: true)
-
-    # parsed_results[:stores].map do |raw_store|
-    #   Store.new(raw_store)
-    # end
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   private
