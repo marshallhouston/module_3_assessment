@@ -9,6 +9,15 @@ class Api::V1::ItemsController < Api::V1::BaseController
     render json: @item
   end
 
+  def create
+    item = Item.new(item_params)
+    if item.save
+      render json: item, status: :created
+    else
+      render json: item.errors, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     if @item
       @item.destroy
@@ -21,5 +30,9 @@ class Api::V1::ItemsController < Api::V1::BaseController
 
     def set_item
       @item ||= Item.find(params[:id])
+    end
+
+    def item_params
+      params.require(:item).permit(:id, :name, :description, :image_url)
     end
 end
